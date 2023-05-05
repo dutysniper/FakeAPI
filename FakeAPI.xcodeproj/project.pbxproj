@@ -58,11 +58,11 @@
 		91467EB42A051EBE001280CB /* FakeAPI */ = {
 			isa = PBXGroup;
 			children = (
+				91467EC92A051F05001280CB /* App */,
+				91467ECA2A051F1D001280CB /* ViewControllers */,
+				91467ECB2A051F2A001280CB /* Storyboards */,
 				91467ECD2A051F7C001280CB /* Models */,
 				91467ECC2A051F39001280CB /*  Resources */,
-				91467ECB2A051F2A001280CB /* Storyboards */,
-				91467ECA2A051F1D001280CB /* ViewControllers */,
-				91467EC92A051F05001280CB /* App */,
 			);
 			path = FakeAPI;
 			sourceTree = "<group>";
