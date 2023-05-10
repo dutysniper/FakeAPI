@@ -90,13 +90,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7XW-hp-lhg">
-                                <rect key="frame" x="16" y="279" width="288" height="20.5"/>
+                                <rect key="frame" x="16" y="327.5" width="288" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FIS-LR-hPO">
-                                <rect key="frame" x="85" y="109" width="150" height="150"/>
+                                <rect key="frame" x="85" y="157.5" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FIS-LR-hPO" secondAttribute="height" multiplier="1:1" id="bS2-QI-gfg"/>
                                 </constraints>
@@ -127,8 +127,8 @@
         <scene sceneID="ExX-qv-H5G">
             <objects>
                 <navigationController id="PI5-Mi-ywW" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Thf-Ds-A3r">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Thf-Ds-A3r">
+                        <rect key="frame" x="0.0" y="20" width="320" height="92.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

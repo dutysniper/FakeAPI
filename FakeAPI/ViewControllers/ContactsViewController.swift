@@ -24,6 +24,7 @@ final class ContactsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         contacts.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell") as? ContactCell else {
             return UITableViewCell()
@@ -31,6 +32,7 @@ final class ContactsViewController: UITableViewController {
         cell.configure(with: contacts[indexPath.row])
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedPerson = contacts[indexPath.row]
         performSegue(withIdentifier: "showContactDetails", sender: selectedPerson)
@@ -68,5 +70,4 @@ extension ContactsViewController {
             }
         }
     }
-    
 }
