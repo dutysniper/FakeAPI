@@ -8,7 +8,7 @@
 import UIKit
 
 final class DetailsViewController: UIViewController {
-
+    
     //MARK: - IBOutlets
     @IBOutlet weak var contactInfo: UILabel!
     @IBOutlet weak var contactImage: UIImageView!
@@ -25,7 +25,6 @@ final class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureUI()
     }
     
