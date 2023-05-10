@@ -8,7 +8,6 @@
 import Foundation
 
 struct Person: Decodable {
-    let id: Int
     let firstname: String
     let lastname: String
     var fullname: String {
@@ -35,7 +34,6 @@ struct Person: Decodable {
 }
 
 struct Address: Decodable {
-    let id: Int
     let street: String
     let streetName: String
     let buildingNumber: String
@@ -47,7 +45,6 @@ struct Address: Decodable {
     let longitude: Double
 
     enum CodingKeys: String, CodingKey {
-        case id
         case street
         case streetName = "streetName"
         case buildingNumber

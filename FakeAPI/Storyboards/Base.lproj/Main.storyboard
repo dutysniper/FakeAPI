@@ -32,16 +32,16 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="2pe-06-dVE">
-                                            <rect key="frame" x="83" y="26" width="41.5" height="38.5"/>
+                                            <rect key="frame" x="83" y="25.5" width="213" height="38.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lza-r1-QKo">
-                                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="213" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ulD-4s-iyM">
-                                                    <rect key="frame" x="0.0" y="22.5" width="41.5" height="16"/>
+                                                    <rect key="frame" x="0.0" y="22.5" width="213" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
@@ -51,9 +51,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Owd-nB-DNh" firstAttribute="top" secondItem="SsJ-rX-2sk" secondAttribute="topMargin" constant="8" id="7V7-4a-2gS"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="2pe-06-dVE" secondAttribute="trailing" constant="8" id="L5m-83-Pcs"/>
                                         <constraint firstItem="2pe-06-dVE" firstAttribute="leading" secondItem="Owd-nB-DNh" secondAttribute="trailing" constant="7" id="XxX-Ve-45y"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="2pe-06-dVE" secondAttribute="bottom" constant="15" id="ecN-Dg-cPn"/>
                                         <constraint firstItem="Owd-nB-DNh" firstAttribute="leading" secondItem="SsJ-rX-2sk" secondAttribute="leadingMargin" constant="8" id="ljn-nw-Y5B"/>
-                                        <constraint firstItem="2pe-06-dVE" firstAttribute="centerY" secondItem="SsJ-rX-2sk" secondAttribute="centerY" id="ryJ-1J-wfB"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Owd-nB-DNh" secondAttribute="bottom" constant="8" id="vTP-YW-lw8"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -69,9 +70,11 @@
                             <outlet property="delegate" destination="ggQ-Hy-AOD" id="YD4-zW-2GW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Contacts" id="TLP-zQ-hSI"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="TLP-zQ-hSI">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="2sG-1D-CMr"/>
+                    </navigationItem>
                     <connections>
-                        <segue destination="zz3-KE-t1X" kind="presentation" identifier="showContactDetails" modalPresentationStyle="fullScreen" id="HIz-cX-KX8"/>
+                        <segue destination="zz3-KE-t1X" kind="show" identifier="showContactDetails" id="HIz-cX-KX8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPy-CE-Nkw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -87,13 +90,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7XW-hp-lhg">
-                                <rect key="frame" x="16" y="215" width="288" height="20.5"/>
+                                <rect key="frame" x="16" y="279" width="288" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FIS-LR-hPO">
-                                <rect key="frame" x="85" y="45" width="150" height="150"/>
+                                <rect key="frame" x="85" y="109" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FIS-LR-hPO" secondAttribute="height" multiplier="1:1" id="bS2-QI-gfg"/>
                                 </constraints>
@@ -110,6 +113,7 @@
                             <constraint firstItem="7XW-hp-lhg" firstAttribute="leading" secondItem="Obk-sc-Uvm" secondAttribute="leading" constant="16" id="tWQ-1S-Net"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="oFm-hP-iGN"/>
                     <connections>
                         <outlet property="contactImage" destination="FIS-LR-hPO" id="SC8-yy-XAJ"/>
                         <outlet property="contactInfo" destination="7XW-hp-lhg" id="MMp-oK-xjL"/>
