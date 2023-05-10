@@ -21,6 +21,17 @@ struct Person: Decodable {
     let address: Address
     let website: String
     let image: String
+    var description: String {
+        """
+        name: \(fullname)
+        gender: \(gender)
+        email: \(email)
+        phone: \(phone)
+        website: \(website)
+        birthday: \(birthday)
+        address: \(address)
+        """
+    }
 }
 
 struct Address: Decodable {
