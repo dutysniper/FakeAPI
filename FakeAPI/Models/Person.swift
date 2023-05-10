@@ -11,6 +11,9 @@ struct Person: Decodable {
     let id: Int
     let firstname: String
     let lastname: String
+    var fullname: String {
+        firstname + " " + lastname
+    }
     let email: String
     let phone: String
     let birthday: String

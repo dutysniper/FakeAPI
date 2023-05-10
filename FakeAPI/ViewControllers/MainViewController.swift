@@ -7,33 +7,38 @@
 
 import UIKit
 
-let url = URL(string: "https://fakerapi.it/api/v1/persons?_quantity=1&_gender=male&_birthday_start=2005-01-01")!
-
 final class MainViewController: UIViewController {
 
+    private let networkManager = NetworkManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
+        fetchMyInfo()
     }
 
 
 }
 
 extension MainViewController {
-    private func fetchData() {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data, let response else {
-                print(error?.localizedDescription ?? "No error description")
-                return
+    private func fetchMyInfo() {
+        networkManager.fetch(PersonResponse.self, from: Link.myself.url) { result in
+            switch result {
+            case .success(let myInfo):
+                print(myInfo.data.first?.fullname ?? "No data")
+            case .failure(let error):
+                print(error)
             }
-            print(response)
-            do {
-                let decoder = JSONDecoder()
-                let person =  try decoder.decode(PersonResponse.self, from: data)
-                print(person.data)
-            } catch {
-                print(error.localizedDescription)
+        }
+    }
+    
+    private func fetchContacts() {
+        networkManager.fetch(PersonResponse.self, from: Link.randomPeople.url) { result in
+            switch result {
+            case .success(let contacts):
+                print(contacts.data)
+            case .failure(let error):
+                print(error)
             }
-        }.resume()
+        }
     }
 }

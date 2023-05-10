@@ -14,6 +14,7 @@
 		91467EBF2A051EBF001280CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91467EBE2A051EBF001280CB /* Assets.xcassets */; };
 		91467EC22A051EBF001280CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91467EC02A051EBF001280CB /* LaunchScreen.storyboard */; };
 		91467ECF2A051F89001280CB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91467ECE2A051F89001280CB /* Person.swift */; };
+		91467ED22A0BCA74001280CB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91467ED12A0BCA74001280CB /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		91467EC12A051EBF001280CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91467EC32A051EBF001280CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91467ECE2A051F89001280CB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		91467ED12A0BCA74001280CB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		91467EB42A051EBE001280CB /* FakeAPI */ = {
 			isa = PBXGroup;
 			children = (
+				91467ED02A0BCA34001280CB /* Services */,
 				91467EC92A051F05001280CB /* App */,
 				91467ECA2A051F1D001280CB /* ViewControllers */,
 				91467ECB2A051F2A001280CB /* Storyboards */,
@@ -108,6 +111,14 @@
 				91467ECE2A051F89001280CB /* Person.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		91467ED02A0BCA34001280CB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				91467ED12A0BCA74001280CB /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 			files = (
 				91467EBA2A051EBE001280CB /* MainViewController.swift in Sources */,
 				91467EB62A051EBE001280CB /* AppDelegate.swift in Sources */,
+				91467ED22A0BCA74001280CB /* NetworkManager.swift in Sources */,
 				91467ECF2A051F89001280CB /* Person.swift in Sources */,
 				91467EB82A051EBE001280CB /* SceneDelegate.swift in Sources */,
 			);
