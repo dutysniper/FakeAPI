@@ -31,7 +31,7 @@ final class DetailsViewController: UIViewController {
     //MARK: - Setup UI
     private func configureUI() {
         contactInfo.text = contact?.description
-        networkManager.fetchImage(from: URL(string: contact.image)!) { [weak self] result in
+        networkManager.fetchData(from: URL(string: contact.image)!) { [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.contactImage.image = UIImage(data: imageData)

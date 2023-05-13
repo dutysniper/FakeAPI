@@ -26,7 +26,7 @@ final class ContactCell: UITableViewCell {
          
      fullnameLabel.attributedText = attributedString
         
-        networkManager.fetchImage(from: URL(string: contact.image)!) { [weak self] result in
+        networkManager.fetchData(from: URL(string: contact.image)!) { [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.contactImage.image = UIImage(data: imageData)

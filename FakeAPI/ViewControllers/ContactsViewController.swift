@@ -12,7 +12,7 @@ final class ContactsViewController: UITableViewController {
     //MARK: - Private properties
     private let networkManager = NetworkManager.shared
     private var contacts: [Person] = []
-    private var images: [UIImage] = []
+    
     
     //MARK: - life-cycle vc
     override func viewDidLoad() {
@@ -48,22 +48,11 @@ final class ContactsViewController: UITableViewController {
     
 //MARK: - Fetching data methods
 extension ContactsViewController {
-//    private func fetchMyInfo() {
-//        networkManager.fetch(PersonResponse.self, from: Link.myself.url) { [weak self] result in
-//            switch result {
-//            case .success(let myInfo):
-//                self?.myInfo = myInfo.data.first
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
-    
     private func fetchContacts() {
-        networkManager.fetch(PersonResponse.self, from: Link.randomPeople.url) { [weak self] result in
+        networkManager.fetchPersons(from: Link.randomPeople.url) { [weak self] result in
             switch result {
             case .success(let contacts):
-                self?.contacts = contacts.data.sorted { $0.lastname < $1.lastname }
+                self?.contacts = contacts.sorted { $0.lastname < $1.lastname }
                 self?.tableView.reloadData()
             case .failure(let error):
                 print(error)
