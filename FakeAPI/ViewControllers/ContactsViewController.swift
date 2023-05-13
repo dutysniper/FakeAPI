@@ -78,7 +78,6 @@ final class ContactsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
         performSegue(withIdentifier: "showContactDetails", sender: nil)
     }
 
