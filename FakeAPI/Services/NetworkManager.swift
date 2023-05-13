@@ -17,7 +17,7 @@ enum Link {
         case .myself:
             return URL(string: "https://fakerapi.it/api/v1/persons?_quantity=1&_gender=male&_birthday_start=2005-01-01")!
         case .randomPeople:
-            return URL(string: "https://fakerapi.it/api/v1/persons?_quantity=25)")!
+            return URL(string: "https://fakerapi.it/api/v1/persons?_quantity=50)")!
         }
     }
 }

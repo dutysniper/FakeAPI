@@ -8,36 +8,47 @@
 import UIKit
 
 final class ContactsViewController: UITableViewController {
-    
+
     //MARK: - Private properties
     private let networkManager = NetworkManager.shared
     private var contacts: [Person] = []
-    
-    
+    private var contactsDictionary: [String: [Person]] = [:]
+    private var sectionTitles: [String] = []
+
     //MARK: - life-cycle vc
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchContacts()
     }
-    
+
     //MARK: - TableView DataSource methods
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        contacts.count
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionTitles.count
     }
-    
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let sectionTitle = sectionTitles[section]
+        return contactsDictionary[sectionTitle]?.count ?? 0
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell") as? ContactCell else {
             return UITableViewCell()
         }
-        cell.configure(with: contacts[indexPath.row])
+        let sectionTitle = sectionTitles[indexPath.section]
+        let sectionContacts = contactsDictionary[sectionTitle] ?? []
+        cell.configure(with: sectionContacts[indexPath.row])
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedPerson = contacts[indexPath.row]
-        performSegue(withIdentifier: "showContactDetails", sender: selectedPerson)
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
     }
-    
+
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return sectionTitles
+    }
+
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailsVC = segue.destination as? DetailsViewController else { return }
@@ -45,7 +56,7 @@ final class ContactsViewController: UITableViewController {
         detailsVC.contact = selectedPerson
     }
 }
-    
+
 //MARK: - Fetching data methods
 extension ContactsViewController {
     private func fetchContacts() {
@@ -53,10 +64,21 @@ extension ContactsViewController {
             switch result {
             case .success(let contacts):
                 self?.contacts = contacts.sorted { $0.lastname < $1.lastname }
+                self?.groupContactsByLastName()
                 self?.tableView.reloadData()
             case .failure(let error):
                 print(error)
             }
         }
+    }
+
+    private func groupContactsByLastName() {
+        contactsDictionary = Dictionary(grouping: contacts) { contact in
+            guard let firstLetter = contact.lastname.first else {
+                return " "
+            }
+            return String(firstLetter)
+        }
+        sectionTitles = contactsDictionary.keys.sorted()
     }
 }
